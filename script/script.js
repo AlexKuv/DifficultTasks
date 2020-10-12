@@ -16,4 +16,3 @@ console.log(degree);
 //4) Вывести на экран первые 2 цифры полученного числа
 const sub = String(degree);
 console.log(sub.substring(0,2));
-
