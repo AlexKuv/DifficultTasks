@@ -1,43 +1,20 @@
 'use strict';
 
-/*Переменная lang может принимать 2 значения: 'ru' 'en'.
-Написать условия при котором в зависимости от значения 
-lang будут выводится дни недели на русском или английском языке.*/
-//через if, 
-let lang = prompt ('Выберите язык (ru/en)');
+/*1) Создайте функцию, которая принимает 1 аргумент (название произвольное)
+— Если в качестве аргумента передана не строка - функция оповещает об этом пользователя
+— В полученной (как аргумент) строке функция должна убрать все пробелы в начале и в конце
+— Если строка более 30 знаков - то после 30го символа часть текста скрывается и вместо них появляются три точки (...)*/
+let str = prompt ('Введите аргумент');
 
- if (lang === 'ru') {
-     console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
- } else if (lang === 'en') {
-     console.log('Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday');
- } else {
-     console.log('Введено неправильное значение');
- }
- //через switch-case 
- switch (lang) {
-     case 'ru':
-         console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
-         break;
-    case 'en':
-        console.log('Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday');
-        break;
- }
+ let lesson04 = function () {
+     if (isNaN(str)) {
+          str = str.trim();
+         return str.length > 30 ? str.slice (0, 30) + '...' : str ;
+     } else {
+        alert('Вы ввели число!');
+        return;
+     }
+ };
+ console.log(lesson04());
 
- //через многомерный массив без ифов и switch.
- let days = [];
-  days ['ru'] = ['Понедельник', 'Вторник', 'Среда', 
-            'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-  days ['en'] = ['Sunday', 'Monday', 'Tuesday', 
-            'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-let langUser = lang;
-console.log(days[langUser]);
-
-//№3
-let namePerson = prompt ('Введите Ваше имя');
-
-    let Person = 
-    (namePerson === 'Артем') ? 'Директор' : 
-    (namePerson === 'Максим') ? 'Преподаватель' :
-    'Студент';
-    console.log(Person);
+ 
