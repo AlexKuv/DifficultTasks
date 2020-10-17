@@ -2,18 +2,28 @@
 
 let arr = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
 
-let toDay = new Date().getDay()-1;
+
+let getWeekDay = function (date) {
+    date = new Date();
+    let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    let toDay = date.getDay();
+
+    return days[toDay];
+};
+let date = new Date();
+
+getWeekDay(date);
 
 for (let i = 0; i < arr.length; i++ ) {
 
-    if (i === toDay ){
-        document.write(arr[i].bold().italics()+ '<br>');
+    if (arr[i] === getWeekDay(date) ){
+        document.write(getWeekDay(date).bold().italics()+ '<br>');
     } else 
-    if (i === 5){
-    document.write( arr[5].italics() + '<br>');
+    if (arr[i] === 'Суббота'){
+    document.write( 'Суббота'.italics() + '<br>');
     } else 
-    if (i === 6) {
-        document.write (arr[6].italics() + '<br>');
+    if (arr[i] === 'Воскресенье') {
+        document.write ('Воскресенье'.italics() + '<br>');
     } 
     else  {
         document.write (arr[i] + '<br>');
