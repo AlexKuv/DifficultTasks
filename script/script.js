@@ -36,7 +36,10 @@ getWeekDay();
       case 11: s="декабря"; break;
     }
     let result1=d+" "+s+" "+y;
-    document.write('Сегодня ' + getWeekDay() + ','+ result1 + ' года ' + ' ');
+
+    document.querySelector('.data')
+    .innerHTML='Сегодня ' + getWeekDay() + ','+ result1 + ' года ' + ' ';
+    
 
     } 
 aDate();
@@ -57,12 +60,13 @@ let declOfNum = function(number, words) {
     m+''+ declOfNum(m,[' минута ', ' минуты ', ' минут '])+
     s+''+declOfNum(s,[' секунда', ' секунды', ' секунд']) + '<br>';
 
-    document.write(resultTime);
-    
+    document.querySelector('.clock').innerHTML=resultTime;
+   
     };
 
+    
+    setInterval(timeA,1000);
     timeA();
-
 
 
 //Б)
